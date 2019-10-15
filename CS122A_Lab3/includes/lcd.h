@@ -70,7 +70,9 @@ void LCD_Cursor(unsigned char column) {
 }
 
 void LCD_DisplayString( unsigned char column, const unsigned char* string) {
-	LCD_ClearScreen();
+	if (column < 16){
+		LCD_ClearScreen();
+	}
 	unsigned char c = column;
 	while(*string) {
 		LCD_Cursor(c++);
